@@ -1,6 +1,10 @@
 # gsheets
 
+library untuk memudahkan menyimpan data ke google sheet
 
+anw saya males buat dokumentation, kalian coba explore sendiri ya library juga open source,
+
+kalo bingung langsung ke discusstion github tanya aja disitu saya bakal jawab,
 
 # methods
 
