@@ -481,3 +481,6 @@ var minidb = class Minidb {
         return this.db.deleteAllProperties();
     }
 }
+
+
+ 
