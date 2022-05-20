@@ -15,24 +15,25 @@ https://www.youtube.com/channel/UCj9stNGVvQJspYMp8-lG_ng
 var googlesheet = class Googlesheets {
 
     constructor(sheet_id) {
+        if (typeof sheet_id != "string"){
+          throw {
+            "message": "sheet id harus string"
+          };
+        }
+        if (!this.sheet_id) {
+            return "Sheet id is required Please Read My docs, example \"1KAxctBF3qT8OiZXeA34eFYPYCft22e32e\"";
+        }
         this.sheet_id = sheet_id;
     }
 
     getAll(range_name) {
-        if (!this.sheet_id) {
-            return "Sheet id is required Please Read My docs, example \"1KAxctBF3qT8OiZXeA34eFYPYCft22e32e\"";
-        }
         if (!range_name) {
             return "range name is required example \"Sheet!A2:Z\"";
         }
-        return Sheets.Spreadsheets.Values.get(this.sheet_id, range_name).values;
+        return Sheets.Spreadsheets.Values.get(this.sheet_id, String(range_name)).values;
     }
     
     getUserRow(range_name, user_data) {
-        if (!this.sheet_id) {
-            return "Sheet id is required Please Read My docs, example \"1KAxctBF3qT8OiZXeA34eFYPYCft22e32e\"";
-        }
-        
         if (!range_name) {
             return "range name is required example \"Sheet!A2:Z\"";
         }
@@ -56,9 +57,6 @@ var googlesheet = class Googlesheets {
     }
 
     save(range_name, user_data, array_save, array_update, range_name_update) {
-        if (!this.sheet_id) {
-            return "Sheet id is required Please Read My docs, example \"1KAxctBF3qT8OiZXeA34eFYPYCft22e32e\"";
-        }
         
         if (!range_name) {
             return "range name is required example \"Sheet!A2:Z\"";
